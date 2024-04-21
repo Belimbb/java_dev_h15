@@ -6,7 +6,6 @@ import com.example.java_dev_h15.repository.service.NoteService;
 
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,7 +36,9 @@ public class TestNoteRestController implements NoteRestController {
 
     @PutMapping()
     @Override
-    public ModelAndView updateNote(@RequestParam(name = "note") NoteDTO noteDTO) {
+    public ModelAndView updateNote(@RequestParam(name = "id") Long id,
+                                   @RequestParam(name = "title") String title,
+                                   @RequestParam(name = "content") String content) {
         return null;
     }
 

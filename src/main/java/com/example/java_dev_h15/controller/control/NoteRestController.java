@@ -7,6 +7,6 @@ public interface NoteRestController {
     ModelAndView createNote(String title, String content);
     ModelAndView getNote(Long id);
     ModelAndView listAll();
-    ModelAndView updateNote(NoteDTO noteDTO);
+    ModelAndView updateNote(Long id, String title, String content);
     ModelAndView deleteNote(Long id);
 }

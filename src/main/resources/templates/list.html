@@ -23,7 +23,7 @@
             <button type="submit">Delete</button>
         </form>
         <!-- Кнопка Edit с передачей id через URL -->
-        <form method="get" action='/note/edit?id=${note.id}'>
+        <form method="get" action="/note/edit?id=${note.id}">
             <input type="hidden" name="id" th:value="${note.id}">
             <button type="submit">Edit</button>
         </form>

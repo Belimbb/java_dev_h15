@@ -48,15 +48,24 @@ public class NoteController implements NoteRestController {
 
     @PostMapping("/edit")
     @Override
-    public ModelAndView updateNote(@RequestParam(name = "note") NoteDTO noteDTO) {
+    public ModelAndView updateNote(@RequestParam(name = "id") Long id,
+                                   @RequestParam(name = "title") String title,
+                                   @RequestParam(name = "content") String content) {
+        NoteDTO noteDTO = new NoteDTO();
+        noteDTO.setId(id);
+        noteDTO.setTitle(title);
+        noteDTO.setContent(content);
+
         dtoService.update(noteDTO);
         return new ModelAndView("redirect:/note/list");
     }
 
+
     @GetMapping("/edit")
     public ModelAndView transportOnUpdate(@RequestParam(name = "id") Long id) {
-        ModelAndView modelAndView = new ModelAndView("redirect:/note/edit");
+        ModelAndView modelAndView = new ModelAndView("edit");
         modelAndView.addObject("note", dtoService.getById(id));
+        LOGGER.info("Note transferred on update");
         return modelAndView;
     }
 
